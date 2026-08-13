@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff9f2"/>
+      <stop offset="1" stop-color="#f1ded0"/>
+    </linearGradient>
+    <pattern id="pattern" width="52" height="52" patternUnits="userSpaceOnUse">
+      <path d="M26 0 52 26 26 52 0 26Z" fill="none" stroke="#bd9250" stroke-opacity=".12"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#pattern)"/>
+  <rect x="30" y="30" width="1140" height="570" fill="none" stroke="#bd9250" stroke-opacity=".55"/>
+  <circle cx="600" cy="156" r="53" fill="#91232e"/>
+  <circle cx="600" cy="156" r="46" fill="none" stroke="#fff" stroke-opacity=".55"/>
+  <text x="600" y="176" text-anchor="middle" font-family="serif" font-size="48" fill="#fff">囍</text>
+  <text x="600" y="265" text-anchor="middle" font-family="Georgia,serif" font-size="32" letter-spacing="7" fill="#bd9250">SAVE THE DATE</text>
+  <text x="600" y="370" text-anchor="middle" font-family="Georgia,serif" font-size="84" fill="#342722">Ngọc Ánh &amp; Khắc Chung</text>
+  <line x1="375" x2="825" y1="416" y2="416" stroke="#bd9250"/>
+  <text x="600" y="475" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" letter-spacing="8" fill="#91232e">20 · 09 · 2026</text>
+  <text x="600" y="525" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" letter-spacing="5" fill="#766760">HÀ NỘI</text>
+</svg>
