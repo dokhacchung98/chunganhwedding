@@ -1,11 +1,16 @@
 import { ArrowIcon, CalendarIcon, PinIcon } from "@/components/common/Icons";
+import { SectionDecorations } from "@/components/common/SectionDecorations";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { events } from "@/data/wedding";
 import type { WeddingEvent } from "@/types/wedding";
 
-function EventCard({ event }: { event: WeddingEvent }) {
+function EventCard({ event, index }: { event: WeddingEvent; index: number }) {
   return (
-    <article className={`event-card event-card--${event.tone}`}>
+    <article
+      className={`event-card event-card--${event.tone}`}
+      data-reveal="up"
+      style={{ "--reveal-delay": `${index * 120}ms` } as React.CSSProperties}
+    >
       <div className="event-card__head">
         <span>{event.eyebrow}</span>
         <h3>{event.title}</h3>
@@ -43,6 +48,7 @@ function EventCard({ event }: { event: WeddingEvent }) {
 export function EventsSection() {
   return (
     <section className="section events-section" id="events">
+      <SectionDecorations variant="petals" />
       <div className="shell">
         <SectionHeading
           eyebrow="Ngày chung đôi"
@@ -50,7 +56,7 @@ export function EventsSection() {
           description="Sự hiện diện của bạn là món quà quý giá nhất đối với hai gia đình."
         />
         <div className="events-grid">
-          {events.map((event) => <EventCard event={event} key={event.id} />)}
+          {events.map((event, index) => <EventCard event={event} index={index} key={event.id} />)}
         </div>
       </div>
     </section>

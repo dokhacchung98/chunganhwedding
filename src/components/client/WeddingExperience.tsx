@@ -42,6 +42,7 @@ export function WeddingExperience({
     function openInvitation() {
       gate?.classList.add("invitation-gate--open");
       gate?.setAttribute("aria-hidden", "true");
+      document.documentElement.classList.add("invitation-open");
       setIsOpen(true);
 
       if (sessionStorage.getItem(MUTED_KEY) !== "true") {

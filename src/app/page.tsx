@@ -1,4 +1,5 @@
 import { WeddingExperience } from "@/components/client/WeddingExperience";
+import { ScrollReveal } from "@/components/client/ScrollReveal";
 import { CountdownSection } from "@/components/sections/CountdownSection";
 import { CoupleSection } from "@/components/sections/CoupleSection";
 import { EventsSection } from "@/components/sections/EventsSection";
@@ -17,6 +18,7 @@ export default function HomePage() {
     <>
       <InvitationGate />
       <WeddingExperience audioSrc={siteContent.audio.src} audioTitle={siteContent.audio.title} />
+      <ScrollReveal />
       <main>
         <HeroSection />
         <InvitationSection />

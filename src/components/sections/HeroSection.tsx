@@ -1,4 +1,5 @@
 import { ImagePlaceholder } from "@/components/common/ImagePlaceholder";
+import { SectionDecorations } from "@/components/common/SectionDecorations";
 import { siteContent } from "@/data/wedding";
 
 export function HeroSection() {
@@ -6,6 +7,7 @@ export function HeroSection() {
     <header className="hero" id="top">
       <div className="hero__pattern hero__pattern--left" aria-hidden="true" />
       <div className="hero__pattern hero__pattern--right" aria-hidden="true" />
+      <SectionDecorations variant="petals" className="hero__decorations" />
       <div className="hero__content shell">
         <div className="hero__copy">
           <p className="eyebrow">Save the date</p>

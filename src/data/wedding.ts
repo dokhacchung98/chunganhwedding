@@ -116,28 +116,56 @@ export const events: WeddingEvent[] = [
 
 export const story: StoryMilestone[] = [
   {
+    id: "first-hello",
     year: "2019",
     title: "Lần đầu gặp gỡ",
     description:
       "Một cuộc gặp rất tình cờ, một lời chào còn ngại ngùng, và một câu chuyện dài bắt đầu từ đó.",
+    image: {
+      alt: "Ngọc Ánh và Khắc Chung trong những ngày đầu gặp gỡ",
+      label: "Ảnh lần đầu gặp gỡ",
+      width: 1200,
+      height: 1500,
+    },
   },
   {
+    id: "growing-together",
     year: "2021",
     title: "Cùng nhau trưởng thành",
     description:
       "Những chuyến đi, những ngày bận rộn và cả những phút yếu lòng đã dạy chúng mình cách luôn chọn nhau.",
+    image: {
+      alt: "Ngọc Ánh và Khắc Chung cùng nhau trên một chuyến đi",
+      label: "Ảnh cùng nhau trưởng thành",
+      width: 1200,
+      height: 1500,
+    },
   },
   {
+    id: "the-proposal",
     year: "2026",
     title: "Lời hẹn trăm năm",
     description:
       "Giữa một chiều đầy nắng, câu trả lời “Em đồng ý” đã mở ra chương mới đẹp nhất của hai đứa.",
+    image: {
+      alt: "Khoảnh khắc Ngọc Ánh và Khắc Chung trao lời hẹn trăm năm",
+      label: "Ảnh lời hẹn trăm năm",
+      width: 1200,
+      height: 1500,
+    },
   },
   {
+    id: "our-wedding",
     year: "2026",
     title: "Về chung một nhà",
     description:
       "Chúng mình mong bạn sẽ ở đó, chứng kiến và sẻ chia niềm vui trong ngày đặc biệt này.",
+    image: {
+      alt: "Ngọc Ánh và Khắc Chung trong bộ ảnh cưới",
+      label: "Ảnh về chung một nhà",
+      width: 1200,
+      height: 1500,
+    },
   },
 ];
 

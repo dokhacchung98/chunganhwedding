@@ -1,10 +1,12 @@
 import { ImagePlaceholder } from "@/components/common/ImagePlaceholder";
+import { SectionDecorations } from "@/components/common/SectionDecorations";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { people } from "@/data/wedding";
 
 export function CoupleSection() {
   return (
     <section className="section couple-section" id="couple">
+      <SectionDecorations variant="botanical" />
       <div className="shell">
         <SectionHeading
           eyebrow="Chúng mình"
@@ -14,7 +16,11 @@ export function CoupleSection() {
 
         <div className="couple-grid">
           {people.map((person, index) => (
-            <article className={`person-card person-card--${index === 0 ? "bride" : "groom"}`} key={person.name}>
+            <article
+              className={`person-card person-card--${index === 0 ? "bride" : "groom"}`}
+              key={person.name}
+              data-reveal={index === 0 ? "left" : "right"}
+            >
               <div className="person-card__visual">
                 <span className="person-card__number" aria-hidden="true">0{index + 1}</span>
                 <ImagePlaceholder

@@ -33,9 +33,18 @@ export type WeddingEvent = {
 };
 
 export type StoryMilestone = {
+  id: string;
   year: string;
   title: string;
   description: string;
+  image: {
+    src?: string;
+    alt: string;
+    label: string;
+    width: number;
+    height: number;
+    objectPosition?: string;
+  };
 };
 
 export type GalleryItem = {

@@ -1,5 +1,6 @@
 import { CopyButton } from "@/components/client/CopyButton";
 import { ImagePlaceholder } from "@/components/common/ImagePlaceholder";
+import { SectionDecorations } from "@/components/common/SectionDecorations";
 import { SectionHeading } from "@/components/common/SectionHeading";
 
 export function GiftSection() {
@@ -22,6 +23,7 @@ export function GiftSection() {
 
   return (
     <section className="section gift-section" id="gift">
+      <SectionDecorations variant="botanical" />
       <div className="shell shell--narrow">
         <SectionHeading
           eyebrow="Gửi lời chúc"
@@ -29,7 +31,7 @@ export function GiftSection() {
           description="Tình cảm và sự hiện diện của bạn đã là món quà trọn vẹn. Nếu ở xa, bạn có thể gửi lời chúc tại đây."
         />
 
-        <details className="gift-details">
+        <details className="gift-details" data-reveal="up">
           <summary>
             <span aria-hidden="true">♡</span>
             Xem thông tin mừng cưới

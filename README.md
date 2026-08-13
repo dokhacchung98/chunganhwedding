@@ -31,6 +31,7 @@ Danh sách phản hồi có tại [http://localhost:3000/kq](http://localhost:30
 ## Thay nội dung
 
 - Nội dung, ngày giờ, địa điểm: `src/data/wedding.ts`.
+- Ảnh theo từng mốc trong carousel câu chuyện: thêm `src`, `alt` và `objectPosition` (nếu cần) vào `story[].image` trong `src/data/wedding.ts`; đặt ảnh tại `public/images/story/` và dùng đường dẫn dạng `/images/story/ten-anh.jpg`.
 - Màu sắc và layout: `src/app/globals.css`.
 - Nhạc nền: `public/audio/hanh-phuc-diu-em.mp3`.
 - File lịch: `public/calendar/`.

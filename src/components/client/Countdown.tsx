@@ -56,7 +56,9 @@ export function Countdown({ target }: { target: string }) {
     <div className="countdown" role="timer" aria-label="Thời gian còn lại đến lễ cưới">
       {units.map(([number, label]) => (
         <div className="countdown__unit" key={label}>
-          <strong>{String(number).padStart(2, "0")}</strong>
+          <strong>
+            <i key={number}>{String(number).padStart(2, "0")}</i>
+          </strong>
           <span>{label}</span>
         </div>
       ))}
