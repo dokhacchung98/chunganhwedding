@@ -1,23 +1,25 @@
 import { CopyButton } from "@/components/client/CopyButton";
-import { ImagePlaceholder } from "@/components/common/ImagePlaceholder";
 import { SectionDecorations } from "@/components/common/SectionDecorations";
 import { SectionHeading } from "@/components/common/SectionHeading";
+import Image from "next/image";
 
 export function GiftSection() {
   const giftAccounts = [
     {
       label: "Mừng cưới cô dâu",
-      bank: "Ngân hàng Á Châu · ACB",
-      owner: "NGỌC ÁNH",
-      account: "1234 5678 9999",
-      copyValue: "123456789999",
+      bank: "Ngân hàng Quân đội · MB Bank",
+      owner: "NGUYEN NGOC ANH",
+      account: "0964 164 513",
+      copyValue: "0964164513",
+      pathQR: "/qr_ngoc_anh.png",
     },
     {
       label: "Mừng cưới chú rể",
-      bank: "Ngân hàng Ngoại thương · Vietcombank",
-      owner: "KHẮC CHUNG",
-      account: "0987 6543 2222",
-      copyValue: "098765432222",
+      bank: "Ngân hàng Quân đội · MB Bank",
+      owner: "DO KHAC CHUNG",
+      account: "0333 866 555",
+      copyValue: "0333866555",
+      pathQR: "/qr_khac_chung.png",
     },
   ];
 
@@ -39,11 +41,12 @@ export function GiftSection() {
           <div className="gift-list">
             {giftAccounts.map((gift) => (
               <article className="gift-card" key={gift.owner}>
-                <ImagePlaceholder
+                <Image
+                  className="gift-card__qr"
+                  src={gift.pathQR}
                   width={600}
                   height={600}
-                  label={`QR ${gift.label.toLowerCase()}`}
-                  className="gift-card__qr"
+                  alt={`QR ${gift.label.toLowerCase()}`}
                 />
                 <div className="gift-card__info">
                   <p className="gift-card__label">{gift.label}</p>
@@ -53,7 +56,10 @@ export function GiftSection() {
                     <code>{gift.account}</code>
                     <CopyButton value={gift.copyValue} />
                   </div>
-                  <small>Thông tin đang là dữ liệu mẫu và sẽ được thay trước khi phát hành.</small>
+                  <small>
+                    Thông tin đang là dữ liệu mẫu và sẽ được thay trước khi phát
+                    hành.
+                  </small>
                 </div>
               </article>
             ))}

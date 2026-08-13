@@ -2846,6 +2846,7 @@ h3 {
 
 .gift-card__qr {
   width: 100%;
+  height: auto;
   transition: transform 650ms var(--ease-out), box-shadow 650ms var(--ease-out);
 }
 
