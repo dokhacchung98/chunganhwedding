@@ -1,3 +1,4 @@
+import { GoldSparkles } from "@/components/client/GoldSparkles";
 import { GuestGreeting } from "@/components/client/GuestGreeting";
 import { SectionDecorations } from "@/components/common/SectionDecorations";
 import { siteContent } from "@/data/wedding";
@@ -7,6 +8,7 @@ export function InvitationGate() {
     <div className="invitation-gate" id="invitation-gate">
       <div className="gate-pattern" aria-hidden="true" />
       <SectionDecorations variant="botanical" className="gate-decorations" />
+      <GoldSparkles />
       <div className="gate-card">
         <span className="gate-card__top">Trân trọng kính mời</span>
         <GuestGreeting className="gate-card__guest" />

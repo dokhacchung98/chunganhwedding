@@ -367,6 +367,362 @@ h3 {
   50% { opacity: 0.48; transform: translateY(-10px) scale(1.12) rotate(35deg); }
 }
 
+/* ═══════════════════════════════════════════
+   Floating Petals
+   ═══════════════════════════════════════════ */
+
+.floating-petals {
+  position: fixed;
+  z-index: 2;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floating-petals__petal {
+  position: absolute;
+  top: -30px;
+  left: var(--petal-left);
+  width: var(--petal-size);
+  height: var(--petal-size);
+  color: var(--color-primary);
+  opacity: 0;
+  animation:
+    petal-fall var(--petal-duration) linear var(--petal-delay) infinite,
+    petal-sway var(--petal-sway) ease-in-out var(--petal-delay) infinite;
+}
+
+.floating-petals__petal svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(var(--petal-rotation));
+  filter: blur(0.3px);
+}
+
+@keyframes petal-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0) rotate(0deg);
+  }
+  8% {
+    opacity: var(--petal-opacity);
+  }
+  85% {
+    opacity: var(--petal-opacity);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 105vh, 0) rotate(360deg);
+  }
+}
+
+@keyframes petal-sway {
+  0%, 100% { margin-left: 0; }
+  25% { margin-left: 28px; }
+  75% { margin-left: -28px; }
+}
+
+/* ═══════════════════════════════════════════
+   Floral Divider
+   ═══════════════════════════════════════════ */
+
+.floral-divider {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+  margin: -10px auto;
+  padding: 0 24px;
+}
+
+.floral-divider__svg {
+  width: 100%;
+  height: auto;
+  color: var(--color-accent);
+  opacity: 0.3;
+}
+
+.floral-divider__line {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 0.8;
+  stroke-linecap: round;
+}
+
+.floral-divider__leaf {
+  fill: currentColor;
+  fill-opacity: 0.2;
+  stroke: currentColor;
+  stroke-width: 0.6;
+  stroke-linejoin: round;
+}
+
+.floral-divider__center {
+  fill: currentColor;
+  fill-opacity: 0.35;
+  stroke: currentColor;
+  stroke-width: 0.5;
+}
+
+/* Line-draw animation on scroll */
+.motion-ready .floral-divider__svg .floral-divider__line {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: stroke-dashoffset 1.6s var(--ease-out) 200ms;
+}
+
+.motion-ready .floral-divider__svg .floral-divider__leaf {
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 800ms ease 600ms, transform 800ms var(--ease-out) 600ms;
+  transform-origin: center;
+}
+
+.motion-ready .floral-divider__svg .floral-divider__center {
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 500ms ease 900ms, transform 600ms var(--ease-soft) 900ms;
+  transform-origin: center;
+}
+
+.motion-ready .floral-divider.is-visible .floral-divider__line {
+  stroke-dashoffset: 0;
+}
+
+.motion-ready .floral-divider.is-visible .floral-divider__leaf {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.motion-ready .floral-divider.is-visible .floral-divider__center {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ═══════════════════════════════════════════
+   Gold Sparkles
+   ═══════════════════════════════════════════ */
+
+.gold-sparkles {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.gold-sparkles__dot {
+  position: absolute;
+  left: var(--spark-left);
+  top: var(--spark-top);
+  color: var(--color-accent);
+  font-size: var(--spark-size);
+  font-style: normal;
+  opacity: 0;
+  animation: gold-twinkle var(--spark-duration) ease-in-out var(--spark-delay) infinite;
+}
+
+@keyframes gold-twinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5) rotate(0);
+  }
+  30% {
+    opacity: 0.7;
+    transform: scale(1.2) rotate(45deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(90deg);
+  }
+  70% {
+    opacity: 0.6;
+    transform: scale(1.15) rotate(135deg);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Golden Shimmer Text Effect
+   ═══════════════════════════════════════════ */
+
+.shimmer-text {
+  position: relative;
+  background:
+    linear-gradient(
+      120deg,
+      currentColor 0%,
+      currentColor 35%,
+      var(--color-accent) 50%,
+      currentColor 65%,
+      currentColor 100%
+    );
+  background-size: 250% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-slide 6s ease-in-out infinite;
+}
+
+@keyframes shimmer-slide {
+  0%, 100% { background-position: 200% center; }
+  50% { background-position: -50% center; }
+}
+
+/* Golden glow for special elements */
+.golden-glow {
+  text-shadow:
+    0 0 20px rgba(152, 103, 31, 0.15),
+    0 0 40px rgba(152, 103, 31, 0.08);
+  animation: gentle-glow 4s ease-in-out infinite;
+}
+
+@keyframes gentle-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 20px rgba(152, 103, 31, 0.12),
+      0 0 40px rgba(152, 103, 31, 0.06);
+  }
+  50% {
+    text-shadow:
+      0 0 28px rgba(152, 103, 31, 0.22),
+      0 0 56px rgba(152, 103, 31, 0.12);
+  }
+}
+
+/* Heart beat for ♡ and 囍 icons */
+@keyframes heart-beat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.12); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.08); }
+}
+
+/* ═══════════════════════════════════════════
+   Enhanced Button Shimmer
+   ═══════════════════════════════════════════ */
+
+.button--primary::before {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 30% 50%, rgba(255,255,255,.18), transparent 60%);
+  content: "";
+  opacity: 0;
+  transition: opacity 400ms ease;
+  pointer-events: none;
+}
+
+.button--primary:hover::before {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════════
+   Enhanced Section Glow Effects
+   ═══════════════════════════════════════════ */
+
+/* Soft golden border glow for event cards on reveal */
+.motion-ready .event-card.is-visible {
+  box-shadow: 0 0 0 1px rgba(152, 103, 31, 0.08), 0 12px 38px rgba(70, 40, 26, 0.08);
+  transition: box-shadow 1.2s ease 400ms;
+}
+
+/* Countdown number shimmer */
+.countdown__unit strong {
+  background:
+    linear-gradient(
+      110deg,
+      #fff 0%, #fff 38%,
+      rgba(244, 211, 161, 0.9) 50%,
+      #fff 62%, #fff 100%
+    );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: countdown-shimmer 5s ease-in-out infinite;
+}
+
+@keyframes countdown-shimmer {
+  0%, 100% { background-position: 200% center; }
+  50% { background-position: -100% center; }
+}
+
+/* Invitation couple names golden aura */
+.invitation__couple span {
+  text-shadow:
+    0 0 24px rgba(152, 103, 31, 0.12),
+    0 0 48px rgba(152, 103, 31, 0.06);
+  animation: gentle-glow 5s ease-in-out infinite;
+}
+
+.invitation__couple span:last-child {
+  animation-delay: -1.5s;
+}
+
+/* Hero names subtle glow */
+.hero__names span:last-child {
+  text-shadow: 0 0 36px rgba(145, 35, 46, 0.1);
+}
+
+/* Invitation mark heartbeat */
+.invitation__mark {
+  animation: invitation-mark-glow 3.6s ease-in-out infinite, heart-beat 3s ease-in-out infinite;
+}
+
+/* Thank you section names glow */
+.thank-you__names {
+  text-shadow:
+    0 2px 24px rgba(255, 255, 255, 0.4),
+    0 0 48px rgba(255, 255, 255, 0.15);
+}
+
+/* Gallery items subtle scale-up hover enhancement */
+.gallery-grid__item .image-placeholder {
+  transition: transform 600ms var(--ease-out), box-shadow 600ms ease;
+}
+
+.gallery-grid__item:hover .image-placeholder {
+  box-shadow: 0 16px 48px rgba(70, 40, 26, 0.14);
+}
+
+/* Person card name golden tint */
+.person-card__copy h3 {
+  background:
+    linear-gradient(
+      135deg,
+      var(--color-text) 0%,
+      var(--color-text) 40%,
+      var(--color-accent) 50%,
+      var(--color-text) 60%,
+      var(--color-text) 100%
+    );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-slide 8s ease-in-out infinite;
+}
+
+/* Gate card 囍 seal heartbeat */
+.gate-card__mark {
+  animation: gate-seal 1.1s var(--ease-soft) 250ms backwards, heart-beat 3.5s ease-in-out 2s infinite;
+}
+
+/* Section smooth background parallax-like shift */
+.section {
+  background-attachment: fixed;
+}
+
+/* Scroll cue enhanced pulse */
+.scroll-cue {
+  animation: scroll-cue-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes scroll-cue-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(152, 103, 31, 0); }
+  50% { box-shadow: 0 0 0 6px rgba(152, 103, 31, 0.1); }
+}
+
+
 .button {
   position: relative;
   overflow: hidden;
@@ -3278,6 +3634,19 @@ h3 {
     display: none;
   }
 
+  .floating-petals__petal:nth-child(n+12) {
+    display: none;
+  }
+
+  .floral-divider {
+    max-width: 320px;
+    margin: -6px auto;
+  }
+
+  .gold-sparkles__dot:nth-child(n+8) {
+    display: none;
+  }
+
   .gallery-grid {
     gap: 9px;
   }
@@ -3403,5 +3772,25 @@ h3 {
     opacity: 1;
     filter: none;
     transform: none;
+  }
+
+  .floating-petals,
+  .gold-sparkles {
+    display: none !important;
+  }
+
+  .shimmer-text {
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+  }
+
+  .person-card__copy h3 {
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+  }
+
+  .countdown__unit strong {
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
   }
 }

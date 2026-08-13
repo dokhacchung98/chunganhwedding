@@ -1,3 +1,4 @@
+import { GoldSparkles } from "@/components/client/GoldSparkles";
 import { ImagePlaceholder } from "@/components/common/ImagePlaceholder";
 import { SectionDecorations } from "@/components/common/SectionDecorations";
 import { siteContent } from "@/data/wedding";
@@ -8,6 +9,7 @@ export function HeroSection() {
       <div className="hero__pattern hero__pattern--left" aria-hidden="true" />
       <div className="hero__pattern hero__pattern--right" aria-hidden="true" />
       <SectionDecorations variant="petals" className="hero__decorations" />
+      <GoldSparkles />
       <div className="hero__content shell">
         <div className="hero__copy">
           <p className="eyebrow">Save the date</p>

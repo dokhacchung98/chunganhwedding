@@ -28,9 +28,9 @@ export function InvitationSection() {
         </div>
 
         <div className="invitation__couple" data-reveal="scale">
-          <span>{siteContent.bride}</span>
+          <span className="golden-glow">{siteContent.bride}</span>
           <b>&amp;</b>
-          <span>{siteContent.groom}</span>
+          <span className="golden-glow">{siteContent.groom}</span>
         </div>
       </div>
     </section>

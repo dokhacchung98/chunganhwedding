@@ -1,5 +1,7 @@
+import { FloatingPetals } from "@/components/client/FloatingPetals";
 import { WeddingExperience } from "@/components/client/WeddingExperience";
 import { ScrollReveal } from "@/components/client/ScrollReveal";
+import { FloralDivider } from "@/components/common/FloralDivider";
 import { CountdownSection } from "@/components/sections/CountdownSection";
 import { CoupleSection } from "@/components/sections/CoupleSection";
 import { EventsSection } from "@/components/sections/EventsSection";
@@ -19,15 +21,21 @@ export default function HomePage() {
       <InvitationGate />
       <WeddingExperience audioSrc={siteContent.audio.src} audioTitle={siteContent.audio.title} />
       <ScrollReveal />
+      <FloatingPetals />
       <main>
         <HeroSection />
         <InvitationSection />
+        <FloralDivider variant="ornate" />
         <CoupleSection />
+        <FloralDivider variant="simple" />
         <EventsSection />
         <CountdownSection />
+        <FloralDivider variant="ornate" />
         <StorySection />
+        <FloralDivider variant="simple" />
         <GallerySection />
         <RsvpSection />
+        <FloralDivider variant="simple" />
         <GiftSection />
       </main>
       <ThankYouSection />
