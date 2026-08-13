@@ -9,31 +9,69 @@ function BotanicalOrnament({ className = "" }: { className?: string }) {
   return (
     <svg
       className={className}
-      viewBox="0 0 220 320"
+      viewBox="0 0 200 340"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
       focusable="false"
     >
-      <path d="M38 300C92 245 79 166 128 105C151 77 177 51 190 18" />
-      <path d="M80 235C48 229 27 211 18 184C48 180 72 197 80 235Z" />
-      <path d="M94 202C123 192 144 169 151 139C119 139 98 163 94 202Z" />
-      <path d="M108 159C83 148 69 128 67 103C93 106 109 129 108 159Z" />
-      <path d="M138 93C154 92 171 80 180 61C158 59 141 72 138 93Z" />
-      <path d="M50 275C72 266 88 248 93 226" />
-      <path d="M115 130C137 122 153 108 165 87" />
-      <path d="M152 65C144 47 149 29 166 17C177 36 171 55 152 65Z" />
-      <g>
-        <path d="M18 184C5 176 2 161 9 149C24 152 31 164 28 179" />
-        <path d="M9 149C12 135 24 128 37 132C41 145 35 158 24 164" />
-        <path d="M37 132C51 136 57 149 52 162C40 168 28 162 24 151" />
-        <circle cx="25" cy="153" r="4" />
-      </g>
-      <g>
-        <path d="M179 61C181 46 192 36 205 36C212 50 206 64 194 71" />
-        <path d="M205 36C218 45 220 60 212 72C197 74 187 64 187 50" />
-        <circle cx="198" cy="55" r="4" />
-      </g>
+      {/* Main curving vine stem */}
+      <path
+        d="M48 330 C58 288 52 254 68 216 C80 186 74 158 90 128 C104 102 120 68 156 26"
+        fill="none"
+        strokeWidth="1.4"
+      />
+
+      {/* Left leaves – smooth closed shapes */}
+      <path
+        d="M56 270 C36 258 22 238 20 210 C40 218 52 242 56 270Z"
+      />
+      <path
+        d="M72 208 C52 196 38 176 36 148 C56 156 68 180 72 208Z"
+      />
+      <path
+        d="M88 148 C70 136 58 116 56 88 C74 96 84 120 88 148Z"
+      />
+
+      {/* Right leaves – smooth closed shapes */}
+      <path
+        d="M64 240 C84 228 102 208 108 180 C88 188 72 212 64 240Z"
+      />
+      <path
+        d="M80 178 C100 166 118 146 124 118 C104 126 88 150 80 178Z"
+      />
+      <path
+        d="M98 118 C116 106 132 86 136 58 C118 66 104 90 98 118Z"
+      />
+
+      {/* Leaf midrib veins – thin, no fill */}
+      <path d="M56 270 C38 248 26 226 20 210" fill="none" strokeWidth="0.4" />
+      <path d="M64 240 C82 220 98 198 108 180" fill="none" strokeWidth="0.4" />
+      <path d="M72 208 C56 188 44 168 36 148" fill="none" strokeWidth="0.4" />
+      <path d="M80 178 C96 158 110 138 124 118" fill="none" strokeWidth="0.4" />
+      <path d="M88 148 C74 128 64 108 56 88" fill="none" strokeWidth="0.4" />
+      <path d="M98 118 C112 98 126 78 136 58" fill="none" strokeWidth="0.4" />
+
+      {/* Berry cluster at tip */}
+      <circle cx="160" cy="20" r="3.5" />
+      <circle cx="168" cy="12" r="2.5" />
+      <circle cx="152" cy="12" r="2.5" />
+
+      {/* Accent dots at leaf junctions */}
+      <circle cx="76" cy="192" r="1.5" />
+      <circle cx="94" cy="132" r="1.5" />
+
+      {/* Delicate curling tendrils */}
+      <path
+        d="M50 298 C42 304 38 298 40 290 C42 284 48 286 48 292"
+        fill="none"
+        strokeWidth="0.7"
+      />
+      <path
+        d="M118 86 C126 80 130 86 128 94 C126 100 120 98 120 92"
+        fill="none"
+        strokeWidth="0.7"
+      />
     </svg>
   );
 }
@@ -42,21 +80,70 @@ function LotusOrnament({ className = "" }: { className?: string }) {
   return (
     <svg
       className={className}
-      viewBox="0 0 280 190"
+      viewBox="0 0 300 200"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
       focusable="false"
     >
-      <path d="M140 145C105 119 106 76 140 33C174 76 175 119 140 145Z" />
-      <path d="M139 145C105 143 76 118 64 77C105 76 131 102 139 145Z" />
-      <path d="M141 145C175 143 204 118 216 77C175 76 149 102 141 145Z" />
-      <path d="M112 137C78 144 45 130 24 98C60 88 94 103 112 137Z" />
-      <path d="M168 137C202 144 235 130 256 98C220 88 186 103 168 137Z" />
-      <path d="M44 153C96 164 184 164 236 153" />
-      <path d="M74 174C111 181 169 181 206 174" />
-      <circle cx="140" cy="23" r="3" />
-      <path d="M140 4V12M119 15L125 21M161 15L155 21" />
+      {/* Center petal */}
+      <path
+        d="M150 155 C136 118 134 68 150 26 C166 68 164 118 150 155Z"
+      />
+
+      {/* Inner left petal */}
+      <path
+        d="M148 155 C124 138 102 100 96 54 C118 64 140 106 148 155Z"
+      />
+      {/* Inner right petal */}
+      <path
+        d="M152 155 C176 138 198 100 204 54 C182 64 160 106 152 155Z"
+      />
+
+      {/* Outer left petal */}
+      <path
+        d="M144 157 C114 150 74 130 48 88 C76 80 118 104 144 157Z"
+      />
+      {/* Outer right petal */}
+      <path
+        d="M156 157 C186 150 226 130 252 88 C224 80 182 104 156 157Z"
+      />
+
+      {/* Far left petal */}
+      <path
+        d="M140 158 C108 160 62 148 30 120 C56 106 102 116 140 158Z"
+      />
+      {/* Far right petal */}
+      <path
+        d="M160 158 C192 160 238 148 270 120 C244 106 198 116 160 158Z"
+      />
+
+      {/* Petal center lines */}
+      <path d="M150 155 V32" fill="none" strokeWidth="0.35" />
+      <path d="M148 155 L100 60" fill="none" strokeWidth="0.3" />
+      <path d="M152 155 L200 60" fill="none" strokeWidth="0.3" />
+
+      {/* Base arcs */}
+      <path
+        d="M56 166 C100 180 200 180 244 166"
+        fill="none"
+        strokeWidth="1"
+      />
+      <path
+        d="M78 178 C114 188 186 188 222 178"
+        fill="none"
+        strokeWidth="0.6"
+      />
+
+      {/* Stamen dots */}
+      <circle cx="150" cy="22" r="2.5" />
+      <circle cx="142" cy="32" r="1.5" />
+      <circle cx="158" cy="32" r="1.5" />
+
+      {/* Stamen stems */}
+      <path d="M150 6 V16" fill="none" strokeWidth="0.6" />
+      <path d="M138 16 L142 28" fill="none" strokeWidth="0.5" />
+      <path d="M162 16 L158 28" fill="none" strokeWidth="0.5" />
     </svg>
   );
 }
@@ -65,19 +152,54 @@ function PetalOrnament({ className = "" }: { className?: string }) {
   return (
     <svg
       className={className}
-      viewBox="0 0 180 180"
+      viewBox="0 0 200 200"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
       focusable="false"
     >
-      <path d="M90 89C66 71 65 42 90 16C115 42 114 71 90 89Z" />
-      <path d="M91 90C109 66 138 65 164 90C138 115 109 114 91 90Z" />
-      <path d="M90 91C114 109 115 138 90 164C65 138 66 109 90 91Z" />
-      <path d="M89 90C71 114 42 115 16 90C42 65 71 66 89 90Z" />
-      <circle cx="90" cy="90" r="9" />
-      <circle cx="90" cy="90" r="72" />
-      <path d="M90 2V9M90 171V178M2 90H9M171 90H178" />
+      {/* Four cardinal petals */}
+      <path d="M100 96 C90 66 90 36 100 10 C110 36 110 66 100 96Z" />
+      <path d="M104 100 C134 90 164 90 190 100 C164 110 134 110 104 100Z" />
+      <path d="M100 104 C110 134 110 164 100 190 C90 164 90 134 100 104Z" />
+      <path d="M96 100 C66 90 36 90 10 100 C36 110 66 110 96 100Z" />
+
+      {/* Four diagonal petals (subtler, smaller) */}
+      <path
+        d="M104 96 C114 82 130 70 148 64 C142 82 128 96 112 104Z"
+        opacity="0.4"
+      />
+      <path
+        d="M104 104 C118 114 130 130 136 148 C118 142 104 128 96 112Z"
+        opacity="0.4"
+      />
+      <path
+        d="M96 104 C86 118 70 130 52 136 C58 118 72 104 88 96Z"
+        opacity="0.4"
+      />
+      <path
+        d="M96 96 C82 86 70 70 64 52 C82 58 96 72 104 88Z"
+        opacity="0.4"
+      />
+
+      {/* Center circles */}
+      <circle cx="100" cy="100" r="8" />
+      <circle cx="100" cy="100" r="4" />
+
+      {/* Outer ring */}
+      <circle cx="100" cy="100" r="84" fill="none" strokeWidth="0.5" />
+
+      {/* Cardinal accent dots */}
+      <circle cx="100" cy="16" r="2" />
+      <circle cx="184" cy="100" r="2" />
+      <circle cx="100" cy="184" r="2" />
+      <circle cx="16" cy="100" r="2" />
+
+      {/* Cardinal tips beyond ring */}
+      <path d="M100 2 V10" fill="none" strokeWidth="0.6" />
+      <path d="M100 190 V198" fill="none" strokeWidth="0.6" />
+      <path d="M2 100 H10" fill="none" strokeWidth="0.6" />
+      <path d="M190 100 H198" fill="none" strokeWidth="0.6" />
     </svg>
   );
 }

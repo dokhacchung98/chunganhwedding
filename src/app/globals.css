@@ -289,7 +289,9 @@ h3 {
   width: clamp(160px, 19vw, 290px);
   height: auto;
   overflow: visible;
-  opacity: 0.12;
+  opacity: 0.15;
+  fill: currentColor;
+  fill-opacity: 0.15;
   stroke: currentColor;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -609,11 +611,29 @@ h3 {
 .gate-decorations {
   z-index: 1;
   color: #f1d1a0;
+  opacity: 1;
+  transition: opacity 260ms ease;
 }
 
 .gate-decorations .section-decorations__art {
-  width: clamp(220px, 26vw, 390px);
-  opacity: 0.21;
+  width: clamp(190px, 22vw, 320px);
+  opacity: 0.16;
+}
+
+.gate-decorations .section-decorations__art--primary {
+  --ornament-rotate: -20deg;
+  top: -38px;
+  left: -24px;
+}
+
+.gate-decorations .section-decorations__art--secondary {
+  --ornament-rotate: 20deg;
+  right: -24px;
+  bottom: -38px;
+}
+
+.invitation-gate--open .gate-decorations {
+  opacity: 0;
 }
 
 .gate-card__top {
