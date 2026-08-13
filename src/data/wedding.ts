@@ -38,7 +38,7 @@ export const people: Person[] = [
 export const families: Family[] = [
   {
     label: "Nhà gái",
-    parents: ["Ông Nguyễn Văn An", "Bà Trần Thị Hương"],
+    parents: ["Ông Nguyễn Văn Thành", "Bà Nguyễn Hồng Đại"],
     hometown: "Hà Nội",
   },
   {
@@ -48,7 +48,11 @@ export const families: Family[] = [
   },
 ];
 
-function createGoogleCalendarUrl(title: string, dates: string, location: string) {
+function createGoogleCalendarUrl(
+  title: string,
+  dates: string,
+  location: string,
+) {
   const params = new URLSearchParams({
     action: "TEMPLATE",
     text: title,
@@ -88,8 +92,7 @@ export const events: WeddingEvent[] = [
     guestArrival: "Đón khách từ 08:30",
     venue: "Tư gia nhà gái",
     address: brideAddress,
-    mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=So+78+thon+Thuong+Khe+Kieu+Phu+Ha+Noi",
+    mapUrl: "https://maps.app.goo.gl/dmzpcVJyaUhZEWpK7",
     calendarUrl: vuQuyCalendar,
     calendarFile: "/calendar/le-vu-quy.ics",
     tone: "gold",
@@ -106,8 +109,7 @@ export const events: WeddingEvent[] = [
     guestArrival: "Đón khách từ 10:30",
     venue: "Tư gia nhà trai",
     address: groomAddress,
-    mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=So+152+thon+Huong+Ha+Hat+Mon+Ha+Noi",
+    mapUrl: "https://maps.app.goo.gl/U74jLgQZJPqyZgKq8",
     calendarUrl: thanhHonCalendar,
     calendarFile: "/calendar/le-thanh-hon.ics",
     tone: "red",
@@ -117,7 +119,7 @@ export const events: WeddingEvent[] = [
 export const story: StoryMilestone[] = [
   {
     id: "first-hello",
-    year: "2019",
+    year: "2021",
     title: "Lần đầu gặp gỡ",
     description:
       "Một cuộc gặp rất tình cờ, một lời chào còn ngại ngùng, và một câu chuyện dài bắt đầu từ đó.",
@@ -130,7 +132,7 @@ export const story: StoryMilestone[] = [
   },
   {
     id: "growing-together",
-    year: "2021",
+    year: "2022",
     title: "Cùng nhau trưởng thành",
     description:
       "Những chuyến đi, những ngày bận rộn và cả những phút yếu lòng đã dạy chúng mình cách luôn chọn nhau.",
@@ -170,10 +172,46 @@ export const story: StoryMilestone[] = [
 ];
 
 export const gallery: GalleryItem[] = [
-  { id: 1, label: "Ảnh album dọc", width: 800, height: 1000, variant: "portrait" },
-  { id: 2, label: "Ảnh album ngang", width: 1200, height: 800, variant: "landscape" },
-  { id: 3, label: "Ảnh album vuông", width: 900, height: 900, variant: "square" },
-  { id: 4, label: "Ảnh album dọc", width: 800, height: 1000, variant: "portrait" },
-  { id: 5, label: "Ảnh album ngang", width: 1200, height: 800, variant: "landscape" },
-  { id: 6, label: "Ảnh album dọc", width: 800, height: 1000, variant: "portrait" },
+  {
+    id: 1,
+    label: "Ảnh album dọc",
+    width: 800,
+    height: 1000,
+    variant: "portrait",
+  },
+  {
+    id: 2,
+    label: "Ảnh album ngang",
+    width: 1200,
+    height: 800,
+    variant: "landscape",
+  },
+  {
+    id: 3,
+    label: "Ảnh album vuông",
+    width: 900,
+    height: 900,
+    variant: "square",
+  },
+  {
+    id: 4,
+    label: "Ảnh album dọc",
+    width: 800,
+    height: 1000,
+    variant: "portrait",
+  },
+  {
+    id: 5,
+    label: "Ảnh album ngang",
+    width: 1200,
+    height: 800,
+    variant: "landscape",
+  },
+  {
+    id: 6,
+    label: "Ảnh album dọc",
+    width: 800,
+    height: 1000,
+    variant: "portrait",
+  },
 ];
