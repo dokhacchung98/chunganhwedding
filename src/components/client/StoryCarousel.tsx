@@ -185,6 +185,7 @@ export function StoryCarousel({ milestones }: StoryCarouselProps) {
                         width={item.image.width}
                         height={item.image.height}
                         label={item.image.label}
+                        suggestedFileName={item.image.suggestedFileName}
                       />
                     )}
                     <span className="story-slide__number" aria-hidden="true">

@@ -1,9 +1,15 @@
+import Image from "next/image";
 import { GoldSparkles } from "@/components/client/GoldSparkles";
 import { ImagePlaceholder } from "@/components/common/ImagePlaceholder";
 import { SectionDecorations } from "@/components/common/SectionDecorations";
 import { siteContent } from "@/data/wedding";
+import { getExistingImagePath } from "@/lib/images";
 
 export function HeroSection() {
+  const heroImageSrc =
+    siteContent.heroImage.src ||
+    getExistingImagePath(siteContent.heroImage.suggestedFileName);
+
   return (
     <header className="hero" id="top">
       <div className="hero__pattern hero__pattern--left" aria-hidden="true" />
@@ -29,13 +35,27 @@ export function HeroSection() {
         <div className="hero__visual">
           <span className="hero__seal" aria-hidden="true">囍</span>
           <div className="hero__frame">
-            <ImagePlaceholder
-              width={1440}
-              height={960}
-              label="Ảnh bìa"
-              className="hero__placeholder"
-              priority
-            />
+            {heroImageSrc ? (
+              <div className="hero__image-wrap">
+                <Image
+                  src={heroImageSrc}
+                  alt={`Ảnh cưới ${siteContent.bride} & ${siteContent.groom}`}
+                  width={siteContent.heroImage.width}
+                  height={siteContent.heroImage.height}
+                  className="hero__image"
+                  priority
+                />
+              </div>
+            ) : (
+              <ImagePlaceholder
+                width={siteContent.heroImage.width}
+                height={siteContent.heroImage.height}
+                label={siteContent.heroImage.label}
+                suggestedFileName={siteContent.heroImage.suggestedFileName}
+                className="hero__placeholder"
+                priority
+              />
+            )}
           </div>
           <span className="hero__caption">Two hearts · One home</span>
         </div>

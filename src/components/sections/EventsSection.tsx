@@ -1,4 +1,4 @@
-import { ArrowIcon, CalendarIcon, PinIcon } from "@/components/common/Icons";
+import { CarIcon, PinIcon } from "@/components/common/Icons";
 import { SectionDecorations } from "@/components/common/SectionDecorations";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { events } from "@/data/wedding";
@@ -24,23 +24,32 @@ function EventCard({ event, index }: { event: WeddingEvent; index: number }) {
 
       <time className="event-card__time">{event.time}</time>
       <p className="event-card__arrival">{event.guestArrival}</p>
-      <div className="event-card__rule" aria-hidden="true"><span>✦</span></div>
+      <div className="event-card__rule" aria-hidden="true">
+        <span>✦</span>
+      </div>
       <strong className="event-card__venue">{event.venue}</strong>
       <p className="event-card__address">{event.address}</p>
 
       <div className="event-card__actions">
-        <a className="button button--outline" href={event.mapUrl} target="_blank" rel="noreferrer">
+        <a
+          className="button button--outline"
+          href={event.mapUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
           <PinIcon />
           <span>Xem bản đồ</span>
         </a>
-        <a className="button button--soft" href={event.calendarUrl} target="_blank" rel="noreferrer">
-          <CalendarIcon />
-          <span>Thêm vào lịch</span>
+        <a
+          className="button button--soft"
+          href={event.carRegisterUrl || "#"}
+          target={event.carRegisterUrl && event.carRegisterUrl !== "#" ? "_blank" : undefined}
+          rel="noreferrer"
+        >
+          <CarIcon />
+          <span>Đăng ký xe</span>
         </a>
       </div>
-      <a className="event-card__ics" href={event.calendarFile} download>
-        Tải lịch cho iPhone / Outlook <ArrowIcon />
-      </a>
     </article>
   );
 }
@@ -56,7 +65,9 @@ export function EventsSection() {
           description="Sự hiện diện của bạn là món quà quý giá nhất đối với hai gia đình."
         />
         <div className="events-grid">
-          {events.map((event, index) => <EventCard event={event} index={index} key={event.id} />)}
+          {events.map((event, index) => (
+            <EventCard event={event} index={index} key={event.id} />
+          ))}
         </div>
       </div>
     </section>

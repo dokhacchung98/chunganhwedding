@@ -2,6 +2,7 @@ type ImagePlaceholderProps = {
   width: number;
   height: number;
   label: string;
+  suggestedFileName?: string;
   className?: string;
   priority?: boolean;
 };
@@ -10,6 +11,7 @@ export function ImagePlaceholder({
   width,
   height,
   label,
+  suggestedFileName,
   className = "",
   priority = false,
 }: ImagePlaceholderProps) {
@@ -29,6 +31,12 @@ export function ImagePlaceholder({
       <span>
         {width} × {height} px
       </span>
+      {suggestedFileName && (
+        <span className="image-placeholder__file-badge" title="Tên file và thư mục cần đặt">
+          <span className="image-placeholder__file-icon" aria-hidden="true">📁</span>
+          <code className="image-placeholder__file-name">{suggestedFileName}</code>
+        </span>
+      )}
     </div>
   );
 }

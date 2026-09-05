@@ -40,3 +40,17 @@ export function ArrowIcon({ size = 18, className }: IconProps) {
     </svg>
   );
 }
+
+export function CarIcon({ size = 18, className }: IconProps) {
+  return (
+    <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M4 16h16M3 10.5l2-4.5h14l2 4.5M3 10.5v5.5a1 1 0 0 0 1 1h1m16-6.5v5.5a1 1 0 0 1-1 1h-1M6.5 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm11 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM5 10.5h14"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
