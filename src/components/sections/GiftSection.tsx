@@ -33,6 +33,18 @@ export function GiftSection() {
           description="Tình cảm và sự hiện diện của bạn đã là món quà trọn vẹn. Nếu ở xa, bạn có thể gửi lời chúc tại đây."
         />
 
+        <div className="gift-bubu-sticker" data-reveal="up">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/gifs/sseeyall-bubu-dudu2.gif"
+            alt="Bubu & Dudu cảm ơn"
+            className="bubu-sticker"
+            width={84}
+            height={84}
+          />
+          <p className="gift-bubu-text">Gửi ngàn trái tim và lời cảm ơn chân thành! ♡</p>
+        </div>
+
         <details className="gift-details" data-reveal="up">
           <summary>
             <span aria-hidden="true">♡</span>

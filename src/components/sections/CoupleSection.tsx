@@ -62,6 +62,21 @@ export function CoupleSection() {
             );
           })}
         </div>
+
+        <div className="couple-bubu-banner" data-reveal="up">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/gifs/bubu-dudu-dudu-carry.gif"
+            alt="Bubu & Dudu hôn nhau ngọt ngào"
+            className="bubu-sticker bubu-sticker--kiss"
+            width={100}
+            height={100}
+          />
+          <div className="couple-bubu-text">
+            <span>Bubu &amp; Dudu phiên bản đời thực ♡</span>
+            <small>“Cùng nhau đi qua năm tháng, già đi cùng nhau”</small>
+          </div>
+        </div>
       </div>
     </section>
   );

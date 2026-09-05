@@ -41,7 +41,14 @@ export function RsvpForm() {
   if (status === "success") {
     return (
       <div className="rsvp-success" role="status">
-        <span aria-hidden="true">✓</span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/gifs/tkthao219-bubududlove.gif"
+          alt="Bubu & Dudu cảm ơn"
+          className="bubu-sticker bubu-sticker--bounce"
+          width={96}
+          height={96}
+        />
         <h3>Cảm ơn bạn đã phản hồi!</h3>
         <p>Thông tin đã được lưu vào danh sách xác nhận của hai gia đình.</p>
         <button type="button" className="text-button" onClick={() => setStatus("idle")}>
@@ -97,6 +104,18 @@ export function RsvpForm() {
       <div className="field field--full">
         <label htmlFor="message">Lời nhắn gửi đến chúng mình</label>
         <textarea id="message" name="message" rows={4} maxLength={400} placeholder="Viết một lời chúc thật đẹp…" />
+      </div>
+
+      <div className="rsvp-form__bubu-cue">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/gifs/huhaa.gif"
+          alt="Bubu & Dudu chờ đón bạn"
+          className="bubu-sticker"
+          width={64}
+          height={64}
+        />
+        <span>Chúng mình rất mong được đón tiếp bạn! ♡</span>
       </div>
 
       <button className="button button--primary rsvp-form__submit" type="submit" disabled={status === "saving"}>

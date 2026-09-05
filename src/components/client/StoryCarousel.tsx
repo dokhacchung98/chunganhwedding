@@ -15,6 +15,14 @@ type StoryCarouselProps = {
   milestones: StoryMilestone[];
 };
 
+const STORY_BUBU_GIFS = [
+  { src: "/gifs/tkthao219-bubududu.gif", label: "Lần đầu gặp gỡ ngập ngừng" },
+  { src: "/gifs/tkthao219-bubududu2.gif", label: "Lần đầu hẹn hò" },
+  { src: "/gifs/bubududu-drive.gif", label: "Bên nhau vui vẻ mỗi ngày" },
+  { src: "/gifs/peach-goma.gif", label: "Đồng ý bên nhau trọn đời" },
+  { src: "/gifs/bubu-dudu-sseeyall2.gif", label: "Hân hoan về chung một nhà" },
+];
+
 export function StoryCarousel({ milestones }: StoryCarouselProps) {
   const [requestedIndex, setActiveIndex] = useState(0);
   const activeIndex = Math.min(
@@ -238,6 +246,19 @@ export function StoryCarousel({ milestones }: StoryCarouselProps) {
       </div>
 
       <div className="story-carousel__narrative" data-reveal="right">
+        <div className="story-bubu-badge" key={activeIndex}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={STORY_BUBU_GIFS[activeIndex % STORY_BUBU_GIFS.length].src}
+            alt="Bubu & Dudu milestone"
+            className="story-bubu-img"
+            width={76}
+            height={76}
+          />
+          <span className="story-bubu-caption">
+            {STORY_BUBU_GIFS[activeIndex % STORY_BUBU_GIFS.length].label} ♡
+          </span>
+        </div>
         <p className="story-carousel__hint">Chọn một dấu mốc</p>
         <ol className="timeline" ref={timelineRef}>
           {milestones.map((item, index) => {

@@ -19,7 +19,7 @@ Hệ thống đã được lập trình **tự động nhận diện**:
 | 1 | `hero.jpg` | **Ảnh bìa đầu trang (Hero)** | 1440 × 960 px | Ngang 3:2 |
 | 2 | `co-dau.jpg` | **Chân dung Cô dâu** (phần "Chúng mình") | 900 × 1200 px | Dọc 3:4 |
 | 3 | `chu-re.jpg` | **Chân dung Chú rể** (phần "Chúng mình") | 900 × 1200 px | Dọc 3:4 |
-| 4 | `story-01.jpg` | **Kỷ niệm 1** (Lần đầu gặp gỡ - 2021) | 1200 × 1500 px | Dọc 4:5 |
+| 4 | `story-01.jpg` | **Kỷ niệm 1** (Lần đầu gặp gỡ - 2023) | 1200 × 1500 px | Dọc 4:5 |
 | 5 | `story-02.jpg` | **Kỷ niệm 2** (Cùng nhau trưởng thành - 2022) | 1200 × 1500 px | Dọc 4:5 |
 | 6 | `story-03.jpg` | **Kỷ niệm 3** (Lời hẹn trăm năm - Cầu hôn) | 1200 × 1500 px | Dọc 4:5 |
 | 7 | `story-04.jpg` | **Kỷ niệm 4** (Về chung một nhà - Ngày cưới) | 1200 × 1500 px | Dọc 4:5 |

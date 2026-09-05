@@ -58,6 +58,16 @@ export function HeroSection() {
             )}
           </div>
           <span className="hero__caption">Two hearts · One home</span>
+          <div className="hero__bubu-sticker" aria-hidden="true">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/gifs/cute-bears.gif"
+              alt="Bubu & Dudu thả tim"
+              className="bubu-sticker"
+              width={82}
+              height={82}
+            />
+          </div>
         </div>
       </div>
       <a className="scroll-cue" href="#invitation" aria-label="Cuộn đến lời mời">

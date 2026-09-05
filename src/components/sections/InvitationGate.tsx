@@ -21,6 +21,16 @@ export function InvitationGate() {
           {siteContent.bride} &amp; {siteContent.groom}
         </h1>
         <time>{siteContent.weddingDate}</time>
+        <div className="gate-bubu-sticker" aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/gifs/bubu-bubu-dudu.gif"
+            alt="Bubu & Dudu đón chào"
+            className="bubu-sticker"
+            width={74}
+            height={74}
+          />
+        </div>
         <button
           className="button button--primary gate-card__button"
           id="open-invitation"

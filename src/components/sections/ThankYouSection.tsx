@@ -37,6 +37,16 @@ export function ThankYouSection() {
           <div className="thank-you__names">
             {siteContent.bride} <b>&amp;</b> {siteContent.groom}
           </div>
+          <div className="thank-you__bubu-hug" aria-hidden="true">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/gifs/bubu-dudu-sseeyall.gif"
+              alt="Bubu & Dudu ôm nhau"
+              className="bubu-sticker"
+              width={76}
+              height={76}
+            />
+          </div>
         </div>
       </div>
       <div className="thank-you__bottom">

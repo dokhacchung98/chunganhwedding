@@ -75,6 +75,18 @@ export function WeddingExperience({
       <audio ref={audioRef} src={audioSrc} preload="none" loop aria-label={audioTitle} />
 
       <div className={`music-control ${isOpen ? "music-control--visible" : ""}`}>
+        {isPlaying ? (
+          <div className="music-control__bubu" aria-hidden="true">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/gifs/bubu-dudu-dance2.gif"
+              alt="Bubu & Dudu khiêu vũ"
+              className="bubu-music-sticker"
+              width={54}
+              height={54}
+            />
+          </div>
+        ) : null}
         {audioNotice ? <span className="music-control__notice">{audioNotice}</span> : null}
         <button
           type="button"

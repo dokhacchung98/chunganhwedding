@@ -4209,3 +4209,236 @@ h3 {
     -webkit-text-fill-color: currentColor !important;
   }
 }
+
+/* ═══════════════════════════════════════════
+   Bubu & Dudu Cute Animated Stickers
+   ═══════════════════════════════════════════ */
+.bubu-sticker {
+  display: inline-block;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(80, 20, 30, 0.12));
+  border-radius: 12px;
+  transition: transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1), filter 350ms ease;
+  user-select: none;
+}
+
+.bubu-sticker:hover {
+  transform: scale(1.14) rotate(4deg);
+  filter: drop-shadow(0 12px 24px rgba(80, 20, 30, 0.22));
+}
+
+.bubu-sticker--bounce {
+  animation: bubu-bounce 2.2s ease-in-out infinite alternate;
+}
+
+.bubu-sticker--float {
+  animation: bubu-float 3s ease-in-out infinite alternate;
+}
+
+.bubu-sticker--kiss {
+  border-radius: 16px;
+}
+
+/* 1. Gate card sticker */
+.gate-bubu-sticker {
+  margin: 10px auto 14px;
+  display: flex;
+  justify-content: center;
+}
+
+/* 2. Hero sticker */
+.hero__bubu-sticker {
+  position: absolute;
+  right: -14px;
+  bottom: -22px;
+  z-index: 4;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(189, 146, 80, 0.38);
+  border-radius: 20px;
+  padding: 4px;
+  box-shadow: 0 10px 26px rgba(60, 20, 25, 0.14);
+  animation: bubu-float 3.5s ease-in-out infinite alternate;
+}
+
+/* 3. Couple section banner */
+.couple-bubu-banner {
+  margin-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(189, 146, 80, 0.3);
+  border-radius: 999px;
+  padding: 10px 28px;
+  box-shadow: 0 12px 32px rgba(80, 35, 25, 0.07);
+  max-width: 520px;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.couple-bubu-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.couple-bubu-text span {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.couple-bubu-text small {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* 4. Story milestone badge */
+.story-bubu-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(189, 146, 80, 0.36);
+  border-radius: 999px;
+  padding: 6px 18px 6px 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 24px rgba(71, 40, 27, 0.08);
+  animation: bubu-pop 450ms var(--ease-out);
+}
+
+.story-bubu-img {
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.story-bubu-caption {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+}
+
+/* 5. Countdown sticker */
+.countdown-bubu {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+/* 6. RSVP cue */
+.rsvp-form__bubu-cue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: var(--color-primary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* 7. Gift sticker */
+.gift-bubu-sticker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.gift-bubu-text {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* 8. Thank you footer sticker */
+.thank-you__bubu-hug {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+/* 9. Music player dancing sticker */
+.music-control__bubu {
+  position: absolute;
+  top: -54px;
+  right: -3px;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.18));
+  animation: bubu-music-dance 2.2s ease-in-out infinite;
+}
+
+.bubu-music-sticker {
+  object-fit: contain;
+}
+
+/* Animations */
+@keyframes bubu-float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-7px) rotate(2deg);
+  }
+}
+
+@keyframes bubu-bounce {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bubu-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes bubu-music-dance {
+  0%, 100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(4deg);
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .hero__bubu-sticker {
+    right: 6px;
+    bottom: -16px;
+    transform: scale(0.85);
+  }
+  .couple-bubu-banner {
+    flex-direction: column;
+    text-align: center;
+    border-radius: 24px;
+    padding: 14px 20px;
+  }
+  .story-bubu-badge {
+    padding: 5px 14px 5px 6px;
+  }
+  .story-bubu-img {
+    width: 60px !important;
+    height: 60px !important;
+  }
+}

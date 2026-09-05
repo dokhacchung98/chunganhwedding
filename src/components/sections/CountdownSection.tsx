@@ -11,6 +11,16 @@ export function CountdownSection() {
       <GoldSparkles />
       <div className="shell shell--narrow countdown-section__content" data-reveal="scale">
         <span className="eyebrow eyebrow--light">Cùng đếm ngược</span>
+        <div className="countdown-bubu" aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/gifs/mimibubu.gif"
+            alt="Bubu & Dudu hào hứng"
+            className="bubu-sticker bubu-sticker--bounce"
+            width={88}
+            height={88}
+          />
+        </div>
         <h2 id="countdown-title">Chờ ngày mình về chung một nhà</h2>
         <Countdown target={siteContent.weddingDateIso} />
         <p>{siteContent.weddingDate} · Hà Nội</p>
