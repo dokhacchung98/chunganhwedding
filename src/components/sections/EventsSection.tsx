@@ -11,20 +11,6 @@ function EventCard({ event, index }: { event: WeddingEvent; index: number }) {
       data-reveal="up"
       style={{ "--reveal-delay": `${index * 120}ms` } as React.CSSProperties}
     >
-      <div className="event-card__head">
-        <span>{event.eyebrow}</span>
-        <h3>{event.title}</h3>
-      </div>
-
-      <div className="event-card__calendar" aria-label={event.dateLabel}>
-        <span>{event.month}</span>
-        <strong>{event.day}</strong>
-        <span>{event.year}</span>
-      </div>
-
-      <time className="event-card__time">{event.time}</time>
-      <p className="event-card__arrival">{event.guestArrival}</p>
-
       {event.intimateMeal && (
         <div className="event-card__intimate">
           <div className="event-card__intimate-badge">
@@ -44,6 +30,20 @@ function EventCard({ event, index }: { event: WeddingEvent; index: number }) {
           </p>
         </div>
       )}
+
+      <div className="event-card__head">
+        <span>{event.eyebrow}</span>
+        <h3>{event.title}</h3>
+      </div>
+
+      <div className="event-card__calendar" aria-label={event.dateLabel}>
+        <span>{event.month}</span>
+        <strong>{event.day}</strong>
+        <span>{event.year}</span>
+      </div>
+
+      <time className="event-card__time">{event.time}</time>
+      <p className="event-card__arrival">{event.guestArrival}</p>
 
       <div className="event-card__rule" aria-hidden="true">
         <span>✦</span>

@@ -1,6 +1,21 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { Inter, Noto_Serif } from "next/font/google";
 import "./globals.css";
+
+const fontBody = Inter({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-body-loaded",
+  display: "swap",
+});
+
+const fontDisplay = Noto_Serif({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-display-loaded",
+  display: "swap",
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
@@ -47,8 +62,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="vi" data-scroll-behavior="smooth">
-      <body>
+    <html
+      lang="vi"
+      data-scroll-behavior="smooth"
+      className={`${fontBody.variable} ${fontDisplay.variable}`}
+    >
+      <body className={fontBody.className}>
         <noscript>
           <div className="noscript-message">
             Vui lòng bật JavaScript để mở thiệp và sử dụng các tính năng tương
