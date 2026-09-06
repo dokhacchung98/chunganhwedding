@@ -1,4 +1,5 @@
 import { GuestGreeting } from "@/components/client/GuestGreeting";
+import { CarIcon, PinIcon } from "@/components/common/Icons";
 import { SectionDecorations } from "@/components/common/SectionDecorations";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { families, siteContent } from "@/data/wedding";
@@ -16,7 +17,34 @@ export function InvitationSection() {
             <div className="family" key={family.label}>
               <span>{family.label}</span>
               {family.parents.map((parent) => <strong key={parent}>{parent}</strong>)}
-              <small>{family.hometown}</small>
+              <small>{family.address || family.hometown}</small>
+
+              <div className="family__actions">
+                {family.mapUrl && (
+                  <a
+                    className="button button--outline button--sm"
+                    href={family.mapUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Chỉ đường ${family.label.toLowerCase()}`}
+                  >
+                    <PinIcon size={16} />
+                    <span>Chỉ đường {family.label.toLowerCase()}</span>
+                  </a>
+                )}
+                {family.carRegisterUrl && family.carRegisterUrl !== "#" && (
+                  <a
+                    className="button button--soft button--sm"
+                    href={family.carRegisterUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Đăng ký xe ${family.label.toLowerCase()}`}
+                  >
+                    <CarIcon size={16} />
+                    <span>Đăng ký xe</span>
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>

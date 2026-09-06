@@ -56,16 +56,27 @@ export const people: Person[] = [
   },
 ];
 
+const brideAddress = "Số 78 thôn Thượng Khê, Kiều Phú, Hà Nội";
+const groomAddress = "Số 152 thôn Hương Hạ, Hát Môn, Hà Nội";
+
 export const families: Family[] = [
   {
     label: "Nhà gái",
     parents: ["Ông Nguyễn Văn Thành", "Bà Nguyễn Hồng Đại"],
     hometown: "Hà Nội",
+    address: brideAddress,
+    mapUrl: "https://maps.app.goo.gl/dmzpcVJyaUhZEWpK7",
+    carRegisterUrl:
+      "https://docs.google.com/spreadsheets/d/1_6Td2v4XzlSK1tVL4I0YNTIhUnDqYs0oWi_hWAsaWGA/edit?usp=sharing",
   },
   {
     label: "Nhà trai",
     parents: ["Ông Đỗ Khắc Chúc", "Bà Phí Thị Nghị"],
     hometown: "Hà Nội",
+    address: groomAddress,
+    mapUrl: "https://maps.app.goo.gl/U74jLgQZJPqyZgKq8",
+    carRegisterUrl:
+      "https://docs.google.com/spreadsheets/d/1dHBJbSlxejyS1Oalr_M2GsUYI_S2Ilj053VdPeACsic/edit?usp=sharing",
   },
 ];
 
@@ -84,9 +95,6 @@ function createGoogleCalendarUrl(
 
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
-
-const brideAddress = "Số 78 thôn Thượng Khê, Kiều Phú, Hà Nội";
-const groomAddress = "Số 152 thôn Hương Hạ, Hát Môn, Hà Nội";
 
 const vuQuyCalendar = createGoogleCalendarUrl(
   "Lễ Vu Quy - Ngọc Ánh & Khắc Chung",
@@ -116,7 +124,8 @@ export const events: WeddingEvent[] = [
     mapUrl: "https://maps.app.goo.gl/dmzpcVJyaUhZEWpK7",
     calendarUrl: vuQuyCalendar,
     calendarFile: "/calendar/le-vu-quy.ics",
-    carRegisterUrl: "#", // Sẽ thay bằng link bạn cung cấp cho Lễ Vu Quy
+    carRegisterUrl:
+      "https://docs.google.com/spreadsheets/d/1_6Td2v4XzlSK1tVL4I0YNTIhUnDqYs0oWi_hWAsaWGA/edit?usp=sharing",
     tone: "gold",
   },
   {
@@ -134,7 +143,8 @@ export const events: WeddingEvent[] = [
     mapUrl: "https://maps.app.goo.gl/U74jLgQZJPqyZgKq8",
     calendarUrl: thanhHonCalendar,
     calendarFile: "/calendar/le-thanh-hon.ics",
-    carRegisterUrl: "#", // Sẽ thay bằng link bạn cung cấp cho Lễ Thành Hôn
+    carRegisterUrl:
+      "https://docs.google.com/spreadsheets/d/1dHBJbSlxejyS1Oalr_M2GsUYI_S2Ilj053VdPeACsic/edit?usp=sharing",
     tone: "red",
   },
 ];

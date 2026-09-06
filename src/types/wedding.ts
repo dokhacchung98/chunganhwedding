@@ -37,6 +37,9 @@ export type Family = {
   label: string;
   parents: string[];
   hometown: string;
+  address?: string;
+  mapUrl?: string;
+  carRegisterUrl?: string;
 };
 
 export type WeddingEvent = {
