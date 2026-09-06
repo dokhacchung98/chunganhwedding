@@ -119,6 +119,11 @@ export const events: WeddingEvent[] = [
     year: "2026",
     time: "13:00",
     guestArrival: "Đón khách từ 08:30",
+    intimateMeal: {
+      title: "Bữa cơm thân mật",
+      time: "16:00",
+      date: "Thứ Bảy, 19/09/2026",
+    },
     venue: "Tư gia nhà gái",
     address: brideAddress,
     mapUrl: "https://maps.app.goo.gl/dmzpcVJyaUhZEWpK7",
@@ -138,6 +143,11 @@ export const events: WeddingEvent[] = [
     year: "2026",
     time: "14:30",
     guestArrival: "Đón khách từ 10:30",
+    intimateMeal: {
+      title: "Bữa cơm thân mật",
+      time: "16:00",
+      date: "Thứ Bảy, 19/09/2026",
+    },
     venue: "Tư gia nhà trai",
     address: groomAddress,
     mapUrl: "https://maps.app.goo.gl/U74jLgQZJPqyZgKq8",
@@ -200,7 +210,7 @@ export const story: StoryMilestone[] = [
     image: {
       alt: "Khoảnh khắc Ngọc Ánh và Khắc Chung trao lời hẹn trăm năm",
       label: "Kỷ niệm lời hẹn trăm năm",
-      suggestedFileName: "public/images/story-03.jpg",
+      suggestedFileName: "public/images/story-032.jpg",
       width: 1200,
       height: 1500,
     },

@@ -2109,6 +2109,63 @@ h3 {
   font-size: 0.78rem;
 }
 
+.event-card__intimate {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin: 16px auto 0;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: rgba(145, 35, 46, 0.04);
+  border: 1px dashed rgba(145, 35, 46, 0.24);
+  transition: transform var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.event-card:hover .event-card__intimate {
+  transform: translateY(-1px);
+  border-color: rgba(145, 35, 46, 0.42);
+  background: rgba(145, 35, 46, 0.07);
+}
+
+.event-card--gold .event-card__intimate {
+  background: rgba(152, 103, 31, 0.05);
+  border-color: rgba(152, 103, 31, 0.26);
+}
+
+.event-card--gold:hover .event-card__intimate {
+  border-color: rgba(152, 103, 31, 0.45);
+  background: rgba(152, 103, 31, 0.08);
+}
+
+.event-card__intimate-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--color-primary);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.event-card--gold .event-card__intimate-badge {
+  color: var(--color-accent);
+}
+
+.event-card__intimate-sparkle {
+  font-size: 0.62rem;
+  opacity: 0.85;
+}
+
+.event-card__intimate-time {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
 .event-card__rule {
   display: flex;
   align-items: center;

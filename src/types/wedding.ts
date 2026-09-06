@@ -42,6 +42,12 @@ export type Family = {
   carRegisterUrl?: string;
 };
 
+export type IntimateMeal = {
+  title?: string;
+  time: string;
+  date: string;
+};
+
 export type WeddingEvent = {
   id: string;
   eyebrow: string;
@@ -52,6 +58,7 @@ export type WeddingEvent = {
   year: string;
   time: string;
   guestArrival: string;
+  intimateMeal?: IntimateMeal | string;
   venue: string;
   address: string;
   mapUrl: string;

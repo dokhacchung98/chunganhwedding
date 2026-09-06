@@ -24,6 +24,27 @@ function EventCard({ event, index }: { event: WeddingEvent; index: number }) {
 
       <time className="event-card__time">{event.time}</time>
       <p className="event-card__arrival">{event.guestArrival}</p>
+
+      {event.intimateMeal && (
+        <div className="event-card__intimate">
+          <div className="event-card__intimate-badge">
+            <span className="event-card__intimate-sparkle" aria-hidden="true">
+              ✦
+            </span>
+            <span>
+              {typeof event.intimateMeal === "string"
+                ? "Bữa cơm thân mật"
+                : event.intimateMeal.title || "Bữa cơm thân mật"}
+            </span>
+          </div>
+          <p className="event-card__intimate-time">
+            {typeof event.intimateMeal === "string"
+              ? event.intimateMeal
+              : `${event.intimateMeal.time} · ${event.intimateMeal.date}`}
+          </p>
+        </div>
+      )}
+
       <div className="event-card__rule" aria-hidden="true">
         <span>✦</span>
       </div>
