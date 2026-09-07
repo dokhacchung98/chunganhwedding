@@ -169,7 +169,7 @@ export const story: StoryMilestone[] = [
     image: {
       alt: "Ngọc Ánh và Khắc Chung trong những ngày đầu gặp gỡ",
       label: "Kỷ niệm lần đầu gặp gỡ",
-      suggestedFileName: "public/images/story-01.jpg",
+      suggestedFileName: "public/images/conmeno.png",
       width: 1200,
       height: 1500,
     },
@@ -189,7 +189,7 @@ export const story: StoryMilestone[] = [
   },
   {
     id: "growing-together",
-    year: "2024",
+    year: "2023-2026",
     title: "Cùng nhau trưởng thành",
     description:
       "Những chuyến đi, những ngày bận rộn và cả những phút yếu lòng đã dạy chúng mình cách luôn chọn nhau.",

@@ -3392,85 +3392,58 @@ h3 {
 .thank-you {
   background: var(--color-primary-dark);
   color: #fff;
-}
-
-.thank-you__visual {
   position: relative;
   overflow: hidden;
 }
 
-.thank-you__visual .image-placeholder {
-  width: 100%;
-  min-height: min(70svh, 720px);
-  border: 0;
-  background: #fff;
-  animation: thank-you-zoom 16s ease-in-out infinite alternate;
-}
-
-.thank-you__visual .image-placeholder::after {
-  inset: 18px;
-}
-
-.thank-you__image-wrap {
+.thank-you__inner {
   position: relative;
-  width: 100%;
-  min-height: min(72svh, 720px);
-  overflow: hidden;
+  padding-top: clamp(48px, 7vw, 84px);
+  padding-bottom: clamp(40px, 6vw, 68px);
+  text-align: center;
+  z-index: 2;
 }
 
-.thank-you__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 12%;
-  animation: thank-you-zoom 16s ease-in-out infinite alternate;
-}
-
-.thank-you__overlay {
+.thank-you__decorations {
   position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 30px 30px 48px;
-  background: linear-gradient(to top, rgba(72, 15, 21, .88) 0%, rgba(72, 15, 21, .3) 50%, transparent 85%);
-  color: #fff;
-  text-align: center;
   pointer-events: none;
-  z-index: 3;
-}
-
-.thank-you__visual .section-decorations {
-  z-index: 2;
+  z-index: 1;
   color: #efcf9e;
+  opacity: 0.22;
 }
 
-.thank-you__visual .section-decorations__art {
-  opacity: 0.18;
+.thank-you__header {
+  position: relative;
+  z-index: 3;
+  margin-bottom: clamp(24px, 4.5vw, 40px);
 }
 
-.thank-you__overlay>span {
+.thank-you__eyebrow {
+  display: inline-block;
   color: #f1d2a1;
-  font-size: 0.73rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
-.thank-you__overlay h2 {
-  max-width: 740px;
-  margin: 15px 0 26px;
+.thank-you__title {
+  max-width: 760px;
+  margin: 14px auto 18px;
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 6vw, 5.4rem);
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
   font-weight: 400;
-  letter-spacing: -0.045em;
-  line-height: 1;
+  letter-spacing: -0.035em;
+  line-height: 1.18;
+  color: #ffffff;
+  text-wrap: balance;
 }
 
 .thank-you__names {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+  color: #fff;
 }
 
 .thank-you__names b {
@@ -3480,18 +3453,90 @@ h3 {
   font-weight: 400;
 }
 
+.thank-you__header.is-visible .thank-you__eyebrow,
+.thank-you__header.is-visible .thank-you__title,
+.thank-you__header.is-visible .thank-you__names,
+.thank-you__header.is-visible .thank-you__bubu-hug,
 .thank-you__overlay.is-visible>span,
 .thank-you__overlay.is-visible h2,
 .thank-you__overlay.is-visible .thank-you__names {
   animation: thank-you-copy 900ms var(--ease-out) both;
 }
 
+.thank-you__header.is-visible .thank-you__title,
 .thank-you__overlay.is-visible h2 {
   animation-delay: 120ms;
 }
 
+.thank-you__header.is-visible .thank-you__names,
 .thank-you__overlay.is-visible .thank-you__names {
-  animation-delay: 250ms;
+  animation-delay: 240ms;
+}
+
+.thank-you__header.is-visible .thank-you__bubu-hug {
+  animation-delay: 360ms;
+}
+
+.thank-you__visual {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.thank-you__visual.is-visible {
+  animation: thank-you-copy 1000ms var(--ease-out) 280ms both;
+}
+
+.thank-you__frame {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin-inline: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(239, 207, 158, 0.4),
+    0 0 40px rgba(239, 207, 158, 0.12);
+  background: rgba(0, 0, 0, 0.2);
+  transition: transform 600ms var(--ease-out), box-shadow 600ms var(--ease-out);
+}
+
+.thank-you__frame:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 32px 72px rgba(0, 0, 0, 0.52),
+    0 0 0 1.5px rgba(239, 207, 158, 0.55),
+    0 0 50px rgba(239, 207, 158, 0.2);
+}
+
+.thank-you__frame--portrait {
+  max-width: 520px;
+}
+
+.thank-you__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.thank-you__frame:hover .thank-you__image {
+  transform: scale(1.02);
+}
+
+.thank-you__placeholder-wrap {
+  max-width: 1000px;
+  margin-inline: auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.thank-you__placeholder-wrap .image-placeholder {
+  width: 100%;
+  min-height: 400px;
+  border: 1px solid rgba(239, 207, 158, 0.3);
 }
 
 .thank-you__bottom {
