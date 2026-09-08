@@ -210,7 +210,7 @@ export const story: StoryMilestone[] = [
     image: {
       alt: "Khoảnh khắc Ngọc Ánh và Khắc Chung trao lời hẹn trăm năm",
       label: "Kỷ niệm lời hẹn trăm năm",
-      suggestedFileName: "public/images/story-032.jpg",
+      suggestedFileName: "public/images/story-111.jpg",
       width: 1200,
       height: 1500,
     },
