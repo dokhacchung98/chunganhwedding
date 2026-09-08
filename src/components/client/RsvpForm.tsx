@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useGuestName } from "@/hooks/useGuestName";
 
 type FormStatus = "idle" | "saving" | "success" | "error";
 
@@ -8,6 +9,9 @@ export function RsvpForm() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [attendance, setAttendance] = useState("yes");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const guestParam = useGuestName();
+  const defaultGuestName = guestParam !== "Bạn và gia đình" ? guestParam : "";
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -25,15 +29,21 @@ export function RsvpForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const result = await response.json() as { message?: string };
+
+      let result: { message?: string } = {};
+      try {
+        result = (await response.json()) as { message?: string };
+      } catch {
+        // Dự phòng khi server trả về trang lỗi HTML thay vì JSON
+      }
 
       if (!response.ok) {
-        throw new Error(result.message || "Không thể lưu phản hồi.");
+        throw new Error(result.message || `Không thể lưu phản hồi (Mã lỗi ${response.status}). Vui lòng thử lại.`);
       }
 
       setStatus("success");
     } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Không thể lưu phản hồi.");
+      setErrorMessage(error instanceof Error ? error.message : "Không thể lưu phản hồi lúc này. Vui lòng thử lại.");
       setStatus("error");
     }
   }
@@ -49,8 +59,8 @@ export function RsvpForm() {
           width={96}
           height={96}
         />
-        <h3>Cảm ơn bạn đã phản hồi!</h3>
-        <p>Thông tin đã được lưu vào danh sách xác nhận của hai gia đình.</p>
+        <h3>Cảm ơn bạn đã gửi lời chúc!</h3>
+        <p>Lời chúc và thông tin phản hồi đã được gửi tới hai gia đình.</p>
         <button type="button" className="text-button" onClick={() => setStatus("idle")}>
           Gửi phản hồi khác
         </button>
@@ -62,18 +72,38 @@ export function RsvpForm() {
     <form className="rsvp-form" onSubmit={handleSubmit}>
       <div className="field field--full">
         <label htmlFor="guest-name">Tên của bạn</label>
-        <input id="guest-name" name="name" required autoComplete="name" placeholder="Nhập họ và tên" />
+        <input
+          id="guest-name"
+          name="name"
+          required
+          autoComplete="name"
+          placeholder="Nhập họ và tên"
+          defaultValue={defaultGuestName}
+          key={defaultGuestName}
+        />
       </div>
 
       <fieldset className="field field--full">
         <legend>Bạn sẽ đến chung vui chứ?</legend>
         <div className="choice-group">
           <label className="choice">
-            <input type="radio" name="attendance" value="yes" checked={attendance === "yes"} onChange={() => setAttendance("yes")} />
+            <input
+              type="radio"
+              name="attendance"
+              value="yes"
+              checked={attendance === "yes"}
+              onChange={() => setAttendance("yes")}
+            />
             <span>Chắc chắn rồi</span>
           </label>
           <label className="choice">
-            <input type="radio" name="attendance" value="no" checked={attendance === "no"} onChange={() => setAttendance("no")} />
+            <input
+              type="radio"
+              name="attendance"
+              value="no"
+              checked={attendance === "no"}
+              onChange={() => setAttendance("no")}
+            />
             <span>Rất tiếc, mình bận</span>
           </label>
         </div>
@@ -103,7 +133,13 @@ export function RsvpForm() {
 
       <div className="field field--full">
         <label htmlFor="message">Lời nhắn gửi đến chúng mình</label>
-        <textarea id="message" name="message" rows={4} maxLength={400} placeholder="Viết một lời chúc thật đẹp…" />
+        <textarea
+          id="message"
+          name="message"
+          rows={4}
+          maxLength={400}
+          placeholder="Viết một lời chúc thật đẹp gửi cô dâu và chú rể…"
+        />
       </div>
 
       <div className="rsvp-form__bubu-cue">
@@ -119,7 +155,7 @@ export function RsvpForm() {
       </div>
 
       <button className="button button--primary rsvp-form__submit" type="submit" disabled={status === "saving"}>
-        {status === "saving" ? "Đang lưu…" : "Gửi lời xác nhận"}
+        {status === "saving" ? "Đang gửi…" : "Gửi lời chúc & xác nhận"}
       </button>
       {status === "error" ? <p className="form-error" role="alert">{errorMessage}</p> : null}
       <p className="form-note">Phản hồi sẽ được gửi trực tiếp đến danh sách tổng hợp của hai gia đình.</p>

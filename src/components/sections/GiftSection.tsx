@@ -30,8 +30,14 @@ export function GiftSection() {
         <SectionHeading
           eyebrow="Gửi lời chúc"
           title="Hộp mừng cưới"
-          description="Tình cảm và sự hiện diện của bạn đã là món quà trọn vẹn. Nếu ở xa, bạn có thể gửi lời chúc tại đây."
+          description="Tình cảm và lời chúc phúc của bạn là món quà trọn vẹn nhất. Bạn có thể gửi lời chúc hoặc gửi quà mừng từ xa tại đây."
         />
+
+        <div style={{ textAlign: "center", marginBottom: "1.5rem" }} data-reveal="up">
+          <a href="#rsvp" className="button button--outline button--sm">
+            ✉️ Gửi thư chúc mừng đến cô dâu & chú rể
+          </a>
+        </div>
 
         <div className="gift-bubu-sticker" data-reveal="up">
           {/* eslint-disable-next-line @next/next/no-img-element */}

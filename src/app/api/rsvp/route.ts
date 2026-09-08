@@ -26,7 +26,8 @@ export async function POST(request: Request) {
   try {
     const record = await appendRsvp(parsed.data);
     return Response.json({ ok: true, id: record.id }, { status: 201 });
-  } catch {
+  } catch (error) {
+    console.error("Lỗi khi lưu phản hồi RSVP:", error);
     return Response.json(
       { message: "Không thể lưu phản hồi lúc này. Vui lòng thử lại." },
       { status: 500 },

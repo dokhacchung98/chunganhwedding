@@ -24,7 +24,9 @@ npm run build
 npm run start
 ```
 
-Ứng dụng cần chạy bằng Node.js để API có thể ghi RSVP. Mặc định dữ liệu được lưu tại `data/rsvp.json`; có thể đổi sang một đường dẫn tuyệt đối bằng biến môi trường `RSVP_DATA_FILE`.
+Ứng dụng hỗ trợ hai cơ chế lưu trữ RSVP & lời chúc:
+- **Mặc định / Cục bộ**: Lưu tại `data/rsvp.json` (hoặc `/tmp/rsvp.json` khi chạy trên Vercel/serverless).
+- **Đồng bộ Google Sheets (Khuyên dùng khi deploy Vercel)**: Cấu hình biến môi trường `RSVP_WEBHOOK_URL` trên Vercel trỏ tới Web App của Google Apps Script (xem file `scripts/google-sheets-rsvp.js`). Toàn bộ lời chúc và danh sách tham dự sẽ tự động được ghi vào Google Sheet của bạn trong thời gian thực.
 
 Danh sách phản hồi có tại [http://localhost:3000/kq](http://localhost:3000/kq). Route này được đặt `noindex` nhưng chưa có xác thực, vì vậy nên bổ sung mật khẩu hoặc đăng nhập trước khi công khai website.
 
@@ -36,11 +38,7 @@ Danh sách phản hồi có tại [http://localhost:3000/kq](http://localhost:30
 - Nhạc nền: `public/audio/hanh-phuc-diu-em.mp3`.
 - File lịch: `public/calendar/`.
 - Metadata: `src/app/layout.tsx`.
-- Dữ liệu RSVP: `data/rsvp.json`.
-
-Trước khi đưa lên production, thay toàn bộ dữ liệu mẫu, QR và số tài khoản; cập nhật `NEXT_PUBLIC_SITE_URL`; cân nhắc đổi `robots` sang cho phép index nếu muốn website xuất hiện trên công cụ tìm kiếm.
-
-Máy chủ production phải có ổ đĩa ghi được và lưu bền vững. Cách lưu file JSON phù hợp với một tiến trình Node.js; nếu triển khai nhiều máy chủ hoặc trên môi trường serverless có filesystem tạm thời, hãy chuyển phần lưu RSVP sang cơ sở dữ liệu.
+- Dữ liệu RSVP: `data/rsvp.json` hoặc cấu hình Google Sheets webhook.
 
 ## Tối ưu hiệu năng đã áp dụng
 
