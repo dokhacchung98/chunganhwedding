@@ -27,6 +27,12 @@ export type RsvpInput = {
 const defaultDataFile = path.join(process.cwd(), "data", "rsvp.json");
 const tmpDataFile = path.join("/tmp", "rsvp.json");
 
+// Cloud store dùng chung giữa tất cả serverless lambda containers trên Vercel
+const DEFAULT_CLOUD_STORE_ID = "ff808181a067127101a080924c2e485d";
+const CLOUD_API_URL =
+  process.env.RSVP_CLOUD_API_URL ||
+  `https://api.restful-api.dev/objects/${DEFAULT_CLOUD_STORE_ID}`;
+
 function getPrimaryDataFile(): string {
   if (process.env.RSVP_DATA_FILE) {
     return path.resolve(process.env.RSVP_DATA_FILE);
@@ -73,9 +79,10 @@ export function parseRsvpInput(payload: unknown):
   }
 
   const allowedEvents = ["vu-quy", "thanh-hon", "both"];
-  const event = typeof input.event === "string" && allowedEvents.includes(input.event)
-    ? (input.event as Exclude<WeddingEventChoice, null>)
-    : null;
+  const event =
+    typeof input.event === "string" && allowedEvents.includes(input.event)
+      ? (input.event as Exclude<WeddingEventChoice, null>)
+      : null;
   const companions = Number(input.companions);
 
   if (!event) {
@@ -113,6 +120,49 @@ async function writeRecordsToFile(targetFile: string, records: RsvpRecord[]): Pr
   await rename(temporaryFile, targetFile);
 }
 
+async function readCloudRecords(): Promise<RsvpRecord[]> {
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 4000);
+    const res = await fetch(CLOUD_API_URL, {
+      cache: "no-store",
+      headers: { Accept: "application/json" },
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+    if (!res.ok) return [];
+    const json = (await res.json()) as { data?: { records?: RsvpRecord[] } };
+    if (Array.isArray(json?.data?.records)) {
+      return json.data.records;
+    }
+    return [];
+  } catch (error) {
+    console.warn("Lỗi đọc cloud RSVP store:", error);
+    return [];
+  }
+}
+
+async function saveCloudRecords(records: RsvpRecord[]): Promise<boolean> {
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 6000);
+    const res = await fetch(CLOUD_API_URL, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "chunganhwedding-rsvp-store",
+        data: { records },
+      }),
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+    return res.ok;
+  } catch (error) {
+    console.warn("Lỗi ghi cloud RSVP store:", error);
+    return false;
+  }
+}
+
 function getWebhookUrl(): string | null {
   return process.env.RSVP_WEBHOOK_URL || process.env.GOOGLE_SHEET_WEBHOOK_URL || null;
 }
@@ -146,35 +196,31 @@ async function sendToWebhook(url: string, record: RsvpRecord): Promise<void> {
     });
     clearTimeout(timeoutId);
   } catch (error) {
-    console.warn("Lỗi gửi webhook RSVP (không ảnh hưởng đến lưu trữ):", error);
+    console.warn("Lỗi gửi webhook RSVP:", error);
   }
 }
 
 export async function readRsvps(): Promise<RsvpRecord[]> {
   const recordMap = new Map<string, RsvpRecord>();
 
-  // Đọc từ file cấu hình chính (ví dụ data/rsvp.json hoặc biến môi trường)
-  const primaryFile = getPrimaryDataFile();
-  const primaryRecords = await readFileSafely(primaryFile);
-  for (const item of primaryRecords) {
+  // 1. Đọc từ Cloud store (chia sẻ giữa các serverless lambda trên Vercel)
+  const cloudRecords = await readCloudRecords();
+  for (const item of cloudRecords) {
     if (item?.id) recordMap.set(item.id, item);
   }
 
-  // Nếu file chính khác /tmp/rsvp.json, kiểm tra xem có bản ghi nào trong /tmp không
+  // 2. Đọc từ file cấu hình chính (data/rsvp.json hoặc biến môi trường)
+  const primaryFile = getPrimaryDataFile();
+  const primaryRecords = await readFileSafely(primaryFile);
+  for (const item of primaryRecords) {
+    if (item?.id && !recordMap.has(item.id)) recordMap.set(item.id, item);
+  }
+
+  // 3. Đọc từ /tmp nếu có
   if (primaryFile !== tmpDataFile) {
     const tmpRecords = await readFileSafely(tmpDataFile);
     for (const item of tmpRecords) {
-      if (item?.id) recordMap.set(item.id, item);
-    }
-  }
-
-  // Đọc thêm từ file default nếu đang ở Vercel (chứa dữ liệu build-time ban đầu)
-  if (primaryFile !== defaultDataFile) {
-    const defaultRecords = await readFileSafely(defaultDataFile);
-    for (const item of defaultRecords) {
-      if (item?.id && !recordMap.has(item.id)) {
-        recordMap.set(item.id, item);
-      }
+      if (item?.id && !recordMap.has(item.id)) recordMap.set(item.id, item);
     }
   }
 
@@ -194,21 +240,25 @@ export function appendRsvp(input: RsvpInput): Promise<RsvpRecord> {
     const records = await readRsvps();
     records.push(record);
 
-    // Cố gắng ghi vào activeDataFile, nếu gặp lỗi EROFS / EACCES thì fallback sang /tmp
+    // 1. Lưu vào Cloud Store (để tất cả container trên Vercel đều truy cập được)
+    await saveCloudRecords(records);
+
+    // 2. Cố gắng ghi dự phòng vào filesystem cục bộ
     try {
       await writeRecordsToFile(activeDataFile, records);
     } catch (writeError) {
       const code = (writeError as NodeJS.ErrnoException).code;
       if ((code === "EROFS" || code === "EACCES") && activeDataFile !== tmpDataFile) {
-        console.warn(`Hệ thống tệp chỉ đọc tại ${activeDataFile}, chuyển hướng lưu sang ${tmpDataFile}`);
         activeDataFile = tmpDataFile;
-        await writeRecordsToFile(activeDataFile, records);
-      } else {
-        throw writeError;
+        try {
+          await writeRecordsToFile(activeDataFile, records);
+        } catch {
+          // File system lỗi thì cloud store đã lưu thành công
+        }
       }
     }
 
-    // Gửi webhook song song nếu có cấu hình (ví dụ Google Sheets)
+    // 3. Gửi webhook song song nếu có cấu hình (ví dụ Google Sheets)
     const webhookUrl = getWebhookUrl();
     if (webhookUrl) {
       void sendToWebhook(webhookUrl, record);

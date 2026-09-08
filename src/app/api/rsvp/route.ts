@@ -1,9 +1,22 @@
-import { appendRsvp, parseRsvpInput } from "@/lib/rsvp-store";
+import { appendRsvp, parseRsvpInput, readRsvps } from "@/lib/rsvp-store";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 const MAX_BODY_SIZE = 20_000;
+
+export async function GET() {
+  const records = await readRsvps();
+  return Response.json(
+    { ok: true, count: records.length, records },
+    {
+      headers: {
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+      },
+    },
+  );
+}
 
 export async function POST(request: Request) {
   const contentLength = Number(request.headers.get("content-length") ?? 0);

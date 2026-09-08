@@ -4,6 +4,7 @@ import { readRsvps, type RsvpRecord } from "@/lib/rsvp-store";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Kết quả RSVP | Ngọc Ánh & Khắc Chung",
