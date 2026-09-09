@@ -58,6 +58,10 @@ export const people: Person[] = [
 
 const brideAddress = "Số 78 thôn Thượng Khê, Kiều Phú, Hà Nội";
 const groomAddress = "Số 152 thôn Hương Hạ, Hát Môn, Hà Nội";
+const brideCarRegisterUrl =
+  "https://docs.google.com/spreadsheets/d/1_6Td2v4XzlSK1tVL4I0YNTIhUnDqYs0oWi_hWAsaWGA/edit?usp=sharing";
+const groomCarRegisterUrl =
+  "https://docs.google.com/spreadsheets/d/1K6nad4M8JDKc89G-KUQSb2l9cNkJWgVdPqsyS7zS0wU/edit?usp=sharing";
 
 export const families: Family[] = [
   {
@@ -66,8 +70,7 @@ export const families: Family[] = [
     hometown: "Hà Nội",
     address: brideAddress,
     mapUrl: "https://maps.app.goo.gl/dmzpcVJyaUhZEWpK7",
-    carRegisterUrl:
-      "https://docs.google.com/spreadsheets/d/1_6Td2v4XzlSK1tVL4I0YNTIhUnDqYs0oWi_hWAsaWGA/edit?usp=sharing",
+    carRegisterUrl: brideCarRegisterUrl,
   },
   {
     label: "Nhà trai",
@@ -75,8 +78,7 @@ export const families: Family[] = [
     hometown: "Hà Nội",
     address: groomAddress,
     mapUrl: "https://maps.app.goo.gl/U74jLgQZJPqyZgKq8",
-    carRegisterUrl:
-      "https://docs.google.com/spreadsheets/d/1dHBJbSlxejyS1Oalr_M2GsUYI_S2Ilj053VdPeACsic/edit?usp=sharing",
+    carRegisterUrl: groomCarRegisterUrl,
   },
 ];
 
@@ -129,8 +131,7 @@ export const events: WeddingEvent[] = [
     mapUrl: "https://maps.app.goo.gl/dmzpcVJyaUhZEWpK7",
     calendarUrl: vuQuyCalendar,
     calendarFile: "/calendar/le-vu-quy.ics",
-    carRegisterUrl:
-      "https://docs.google.com/spreadsheets/d/1_6Td2v4XzlSK1tVL4I0YNTIhUnDqYs0oWi_hWAsaWGA/edit?usp=sharing",
+    carRegisterUrl: brideCarRegisterUrl,
     tone: "gold",
   },
   {
@@ -153,8 +154,7 @@ export const events: WeddingEvent[] = [
     mapUrl: "https://maps.app.goo.gl/U74jLgQZJPqyZgKq8",
     calendarUrl: thanhHonCalendar,
     calendarFile: "/calendar/le-thanh-hon.ics",
-    carRegisterUrl:
-      "https://docs.google.com/spreadsheets/d/1dHBJbSlxejyS1Oalr_M2GsUYI_S2Ilj053VdPeACsic/edit?usp=sharing",
+    carRegisterUrl: groomCarRegisterUrl,
     tone: "red",
   },
 ];
