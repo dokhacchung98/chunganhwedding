@@ -61,7 +61,7 @@ const groomAddress = "Số 152 thôn Hương Hạ, Hát Môn, Hà Nội";
 const brideCarRegisterUrl =
   "https://docs.google.com/spreadsheets/d/1_6Td2v4XzlSK1tVL4I0YNTIhUnDqYs0oWi_hWAsaWGA/edit?usp=sharing";
 const groomCarRegisterUrl =
-  "https://docs.google.com/spreadsheets/d/1K6nad4M8JDKc89G-KUQSb2l9cNkJWgVdPqsyS7zS0wU/edit?usp=sharing";
+  "https://docs.google.com/spreadsheets/d/1dHBJbSlxejyS1Oalr_M2GsUYI_S2Ilj053VdPeACsic/edit?gid=0#gid=0";
 
 export const families: Family[] = [
   {
